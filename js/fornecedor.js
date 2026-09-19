@@ -92,6 +92,7 @@ async function mostrarPedidos() {
                 "fornecedor_id",
                 usuario.id
             )
+            .neq("status", "Retirado")
             .order(
                 "created_at",
                 {
@@ -120,7 +121,7 @@ async function mostrarPedidos() {
     ) {
 
         listaPedidos.innerHTML =
-            "<p>Nenhum pedido recebido.</p>";
+            "<p>Nenhum pedido aguardando retirada.</p>";
 
         return;
     }
