@@ -1,11 +1,11 @@
 User-agent: *
 Allow: /
 
-Disallow: /carrinho.html
-Disallow: /solicitacoes.html
-Disallow: /cliente-login.html
-Disallow: /fornecedor-login.html
-Disallow: /fornecedor.html
-Disallow: /desenvolvedor.html
+Disallow: /atividade-extencionista/carrinho.html
+Disallow: /atividade-extencionista/solicitacoes.html
+Disallow: /atividade-extencionista/cliente-login.html
+Disallow: /atividade-extencionista/fornecedor-login.html
+Disallow: /atividade-extencionista/fornecedor.html
+Disallow: /atividade-extencionista/desenvolvedor.html
 
-Sitemap: https://SEU-ENDERECO/sitemap.xml
+Sitemap: https://stv33n.github.io/atividade-extencionista/sitemap.xml
