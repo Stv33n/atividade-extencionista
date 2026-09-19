@@ -189,103 +189,9 @@ async function mostrarProdutos() {
         data || [];
 
 
-    listaProdutosCliente.innerHTML = "";
-
-
-    if (produtos.length === 0) {
-
-        listaProdutosCliente.innerHTML =
-            "<p>Nenhum produto disponível no momento.</p>";
-
-        return;
-    }
-
-
-    produtos.forEach(
-        function(produto, indice) {
-
-            const imagem =
-                encontrarImagem(
-                    produto.nome
-                );
-
-
-            let imagemProduto = "";
-
-
-            if (imagem) {
-
-                imagemProduto = `
-
-                    <img
-                        src="${imagem}"
-                        alt="${produto.nome}"
-                        class="imagem-produto"
-                    >
-
-                `;
-
-            }
-
-            else {
-
-                imagemProduto = `
-
-                    <div class="sem-imagem">
-                        📦 Produto sem imagem
-                    </div>
-
-                `;
-
-            }
-
-
-            listaProdutosCliente.innerHTML += `
-
-                <div class="produto">
-
-                    ${imagemProduto}
-
-                    <h3>
-                        ${produto.nome}
-                    </h3>
-
-                    <p>
-                        Preço:
-                        R$ ${Number(produto.preco)
-                            .toFixed(2)
-                            .replace(".", ",")}
-                    </p>
-
-                    <p>
-                        Estoque disponível:
-                        ${produto.estoque}
-                    </p>
-
-                    <p>
-                        Promoção:
-                        ${
-                            produto.promocao
-                                ? "Sim"
-                                : "Não"
-                        }
-                    </p>
-
-                    <button
-                        onclick="adicionarAoCarrinho(${indice})"
-                    >
-                        🛒 Adicionar à lista
-                    </button>
-
-                </div>
-
-            `;
-
-        }
-    );
-
+    criarCategorias();
+    renderizarProdutos();
 }
-
 
 // ==========================================
 // ADICIONAR AO CARRINHO
@@ -354,6 +260,8 @@ function adicionarAoCarrinho(indice) {
             id:
                 produto.id,
 
+            conteudo: produto.conteudo,
+            unidade: produto.unidade,
             fornecedor_id:
                 produto.fornecedor_id,
 

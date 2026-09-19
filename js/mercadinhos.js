@@ -75,29 +75,29 @@ async function mostrarMercadinhos() {
                     <div class="info-mercadinho">
 
                         <h3>
-                            ${estabelecimento.nome_fantasia}
+                            ${Catalogo.escapar(estabelecimento.nome_fantasia)}
                         </h3>
 
                         <p>
                             <strong>📍 Endereço:</strong>
-                            ${estabelecimento.endereco}
+                            ${Catalogo.escapar(estabelecimento.endereco)}
                         </p>
 
                         <p>
                             <strong>📞 Telefone:</strong>
-                            ${estabelecimento.telefone}
+                            ${Catalogo.escapar(estabelecimento.telefone)}
                         </p>
 
                         <p>
                             <strong>🕒 Horário:</strong>
-                            ${estabelecimento.horario}
+                            ${Catalogo.escapar(estabelecimento.horario)}
                         </p>
 
                         ${
                             estabelecimento.descricao
                                 ? `
                                     <p class="descricao-mercadinho">
-                                        ${estabelecimento.descricao}
+                                        ${Catalogo.escapar(estabelecimento.descricao)}
                                     </p>
                                   `
                                 : ""
@@ -115,6 +115,7 @@ async function mostrarMercadinhos() {
             `;
 
 
+            Catalogo.logo(div.querySelector(".icone-mercadinho"), estabelecimento);
             listaMercadinhos.appendChild(
                 div
             );

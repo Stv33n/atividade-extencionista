@@ -186,19 +186,14 @@ async function mostrarProdutos() {
                 <div class="produto">
 
                     <h3>
-                        ${produto.nome}
+                        ${Catalogo.escapar(produto.nome)}
                     </h3>
 
-                    <p>
-                        Preço:
-                        R$ ${Number(produto.preco)
-                            .toFixed(2)
-                            .replace(".", ",")}
-                    </p>
+                    ${Catalogo.preco(produto)}<p>${Catalogo.escapar(Catalogo.medida(produto))} · ${Catalogo.escapar(produto.categoria || "Outros")}</p>
 
                     <p>
                         Estoque:
-                        ${produto.estoque}
+                        ${produto.estoque} embalagem(ns)/porção(ões)
                     </p>
 
                     <p>
@@ -264,6 +259,16 @@ formulario.addEventListener(
             document.getElementById("promocao").value;
 
 
+        const detalhes = {
+            categoria: document.getElementById("categoria").value,
+            conteudo: Number(document.getElementById("conteudo").value),
+            unidade: document.getElementById("unidade").value,
+            preco_anterior: promocao === "sim" ? Number(document.getElementById("precoAnterior").value) : null
+        };
+        if (promocao === "sim" && !(detalhes.preco_anterior > Number(preco))) {
+            alert("O preço anterior deve ser maior que o preço atual da promoção.");
+            return;
+        }
         // ==================================
         // PROCURAR PRODUTO NO CATÁLOGO
         // ==================================
@@ -365,7 +370,8 @@ formulario.addEventListener(
                             Number(estoque),
 
                         promocao:
-                            promocao === "sim"
+                            promocao === "sim",
+                        ...detalhes
 
                     })
                     .eq(
@@ -421,7 +427,8 @@ formulario.addEventListener(
                             Number(estoque),
 
                         promocao:
-                            promocao === "sim"
+                            promocao === "sim",
+                        ...detalhes
 
                     });
 
@@ -446,6 +453,8 @@ formulario.addEventListener(
 
 
         formulario.reset();
+        atualizarCampoPromocao();
+        formulario.querySelector('button[type="submit"]').textContent = "Cadastrar produto";
 
         mostrarProdutos();
 
@@ -494,8 +503,13 @@ function editarProduto(id) {
             : "nao";
 
 
-    produtoEditandoId =
-        produto.id;
+    document.getElementById("categoria").value = produto.categoria || "Outros";
+    document.getElementById("conteudo").value = produto.conteudo || "";
+    document.getElementById("unidade").value = produto.unidade || "un";
+    document.getElementById("precoAnterior").value = produto.preco_anterior || "";
+    atualizarCampoPromocao();
+    formulario.querySelector('button[type="submit"]').textContent = "Salvar alterações";
+    produtoEditandoId = produto.id;
 
 
     formulario.scrollIntoView({
@@ -567,3 +581,12 @@ async function excluirProduto(id) {
 carregarSugestoesProdutos();
 
 mostrarProdutos();
+function atualizarCampoPromocao() {
+    const ativa = document.getElementById("promocao").value === "sim";
+    document.getElementById("grupoPrecoAnterior").hidden = !ativa;
+    const campo = document.getElementById("precoAnterior");
+    campo.disabled = !ativa;
+    campo.required = ativa;
+}
+document.getElementById("promocao").addEventListener("change", atualizarCampoPromocao);
+atualizarCampoPromocao();

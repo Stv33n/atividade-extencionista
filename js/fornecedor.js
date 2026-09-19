@@ -378,6 +378,7 @@ async function carregarEstabelecimento() {
     }
 
 
+    document.getElementById("logoUrl").value = estabelecimento.logo_url || "";
     document.getElementById(
         "nomeFantasia"
     ).value =
@@ -406,6 +407,8 @@ async function carregarEstabelecimento() {
         "descricao"
     ).value =
         estabelecimento.descricao || "";
+
+    atualizarPreviaLogo();
 
 }
 
@@ -447,6 +450,11 @@ if (formEstabelecimento) {
                 usuarioData.user;
 
 
+            const logoUrl = document.getElementById("logoUrl").value.trim();
+            if (logoUrl && !Catalogo.urlImagem(logoUrl)) {
+                alert("Informe um endereço HTTPS válido para a logo.");
+                return;
+            }
             const nomeFantasia =
                 document.getElementById(
                     "nomeFantasia"
@@ -524,7 +532,8 @@ if (formEstabelecimento) {
                                 horario,
 
                             descricao:
-                                descricao
+                                descricao,
+                            logo_url: logoUrl || null
 
                         })
                         .eq(
@@ -570,7 +579,8 @@ if (formEstabelecimento) {
                                 horario,
 
                             descricao:
-                                descricao
+                                descricao,
+                            logo_url: logoUrl || null
 
                         });
 
@@ -609,3 +619,12 @@ if (formEstabelecimento) {
 mostrarPedidos();
 
 carregarEstabelecimento();
+function atualizarPreviaLogo() {
+    Catalogo.logo(document.getElementById("previaLogo"), {
+        nome_fantasia: document.getElementById("nomeFantasia").value || "Mercadinho",
+        logo_url: document.getElementById("logoUrl").value
+    });
+}
+document.getElementById("logoUrl").addEventListener("input", atualizarPreviaLogo);
+document.getElementById("nomeFantasia").addEventListener("input", atualizarPreviaLogo);
+atualizarPreviaLogo();

@@ -75,7 +75,7 @@ async function carregarEstoques() {
     } =
         await supabaseClient
             .from("produtos")
-            .select("id, estoque")
+            .select("*")
             .in("id", ids);
 
 
@@ -98,6 +98,12 @@ async function carregarEstoques() {
 
             estoques[produto.id] =
                 Number(produto.estoque);
+
+            const item = carrinho.find(item => item.id === produto.id);
+            if (item) {
+                item.conteudo = produto.conteudo;
+                item.unidade = produto.unidade;
+            }
 
         }
     );
@@ -159,9 +165,10 @@ async function mostrarCarrinho() {
             div.innerHTML = `
 
                 <h3>
-                    ${item.nome}
+                    ${Catalogo.escapar(item.nome)}
                 </h3>
 
+                <p>${Catalogo.escapar(Catalogo.medida(item))}</p>
                 <p>
                     Preço:
                     R$ ${formatarPreco(item.preco)}
@@ -170,7 +177,7 @@ async function mostrarCarrinho() {
                 <p>
                     Disponível:
                     ${estoque}
-                    unidade(s)
+                    embalagem(ns)/porção(ões)
                 </p>
 
                 <p>

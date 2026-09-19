@@ -118,6 +118,10 @@
                 >
 
 
+                <label for="logoUrl">Link da logo do mercado (opcional):</label>
+                <input type="url" id="logoUrl" placeholder="https://exemplo.com/logo.png" aria-describedby="ajudaLogo">
+                <p id="ajudaLogo" class="texto-ajuda">Use o endereço HTTPS de uma imagem. Sem logo, mostramos as iniciais do mercado.</p>
+                <div id="previaLogo" class="icone-mercadinho" aria-label="Prévia da logo"></div>
                 <label for="endereco">
                     Endereço:
                 </label>
@@ -207,6 +211,26 @@
                 >
 
                 <datalist id="sugestoesProdutos"></datalist>
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" required>
+                    <option value="Outros">Outros</option>
+                    <option>Frutas</option><option>Legumes</option><option>Cereais</option>
+                    <option>Limpeza</option><option>Carnes</option>
+                </select>
+                <div class="linha-formulario">
+                    <div>
+                        <label for="conteudo">Conteúdo por embalagem ou porção:</label>
+                        <input id="conteudo" type="number" min="0.001" step="0.001" placeholder="Ex: 1 ou 500" required>
+                    </div>
+                    <div>
+                        <label for="unidade">Unidade de medida:</label>
+                        <select id="unidade" required>
+                            <option value="un">Unidade</option><option value="kg">Quilograma (kg)</option>
+                            <option value="g">Grama (g)</option><option value="l">Litro (L)</option><option value="ml">Mililitro (mL)</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="texto-ajuda">Exemplo: arroz de 1 kg ou café de 500 g. O preço vale por embalagem ou porção; o estoque conta quantas estão disponíveis.</p>
 
 
                 <div class="linha-formulario">
@@ -214,7 +238,7 @@
                     <div>
 
                         <label for="preco">
-                            Preço:
+                            Preço atual por embalagem/porção:
                         </label>
 
                         <input
@@ -232,7 +256,7 @@
                     <div>
 
                         <label for="estoque">
-                            Quantidade em estoque:
+                            Embalagens/porções em estoque:
                         </label>
 
                         <input
@@ -266,6 +290,10 @@
                 </select>
 
 
+                <div id="grupoPrecoAnterior" hidden>
+                    <label for="precoAnterior">Preço antes da promoção (R$):</label>
+                    <input id="precoAnterior" type="number" min="0.01" step="0.01" disabled>
+                </div>
                 <button type="submit">
                     Cadastrar produto
                 </button>
@@ -312,6 +340,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script src="js/supabase.js"></script>
+    <script src="js/catalogo.js"></script>
+    <script src="js/sessao.js"></script>
 
     <script src="js/script.js"></script>
 
