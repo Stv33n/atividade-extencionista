@@ -175,9 +175,7 @@ async function mostrarCarrinho() {
                 </p>
 
                 <p>
-                    Disponível:
-                    ${estoque}
-                    embalagem(ns)/porção(ões)
+                    ${estoque > 0 ? "Disponível" : "Esgotado"}
                 </p>
 
                 <p>
@@ -188,7 +186,6 @@ async function mostrarCarrinho() {
                     type="number"
                     id="quantidade-${indice}"
                     min="1"
-                    max="${estoque}"
                     value="${item.quantidade}"
                 >
 
@@ -474,8 +471,7 @@ function alterarQuantidadeDigitada(
     ) {
 
         alert(
-            "Estoque disponível: " +
-            estoque
+            "A quantidade solicitada excede a disponibilidade deste produto."
         );
 
         quantidade =

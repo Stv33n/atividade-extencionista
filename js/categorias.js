@@ -38,7 +38,7 @@ function renderizarProdutos() {
             <p>${Catalogo.escapar(Catalogo.medida(produto))}</p>
             <p class="categoria-produto">${Catalogo.escapar(categoria)}</p>
             ${Catalogo.preco(produto)}
-            <p>Estoque: ${Number(produto.estoque)} embalagem(ns)/porção(ões)</p>`;
+            <p>${Number(produto.estoque) > 0 ? "Disponível" : "Esgotado"}</p>`;
         const botao = document.createElement("button");
         botao.type = "button";
         botao.disabled = !(Number(produto.estoque) > 0);
