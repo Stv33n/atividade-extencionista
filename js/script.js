@@ -210,17 +210,19 @@ async function mostrarProdutos() {
                         ${promocao}
                     </p>
 
-                    <button
+                    <div class="acoes-card" role="group" aria-label="Ações do produto">
+                    <button type="button" class="botao-secundario"
                         onclick="editarProduto(${produto.id})"
                     >
                         Editar
                     </button>
 
-                    <button
+                    <button type="button" class="botao-perigo"
                         onclick="excluirProduto(${produto.id})"
                     >
                         Excluir
                     </button>
+                    </div>
 
                 </div>
 

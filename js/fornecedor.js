@@ -203,9 +203,10 @@ async function mostrarPedidos() {
                 pedido.status +
                 "</strong></p>" +
 
-                "<label>Novo status:</label>" +
+                "<div class='acoes-pedido'>" +
+                "<label for='status-pedido-" + pedido.id + "'>Novo status:</label>" +
 
-                "<select class='status'>" +
+                "<select class='status' id='status-pedido-" + pedido.id + "'>" +
 
                 "<option value='Pendente'>" +
                 "Pendente" +
@@ -225,9 +226,9 @@ async function mostrarPedidos() {
 
                 "</select>" +
 
-                "<button class='botaoStatus'>" +
+                "<button type='button' class='botaoStatus'>" +
                 "Alterar status" +
-                "</button>";
+                "</button></div>";
 
 
             listaPedidos.appendChild(

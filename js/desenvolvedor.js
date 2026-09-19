@@ -187,17 +187,18 @@ async function mostrarFornecedores() {
                 fornecedor.status +
                 "</strong></p>" +
 
-                "<button class='aprovar'>" +
+                "<div class='acoes-card' role='group' aria-label='Ações do fornecedor'>" +
+                "<button type='button' class='aprovar'>" +
                 "Aprovar" +
                 "</button>" +
 
-                "<button class='recusar'>" +
+                "<button type='button' class='recusar botao-alerta'>" +
                 "Recusar" +
                 "</button>" +
 
-                "<button class='excluir'>" +
+                "<button type='button' class='excluir botao-perigo'>" +
                 "Excluir" +
-                "</button>";
+                "</button></div>";
 
 
             listaFornecedores.appendChild(

@@ -1017,3 +1017,86 @@ button:focus-visible, a:focus-visible {
 .icone-mercadinho { overflow: hidden; font-size: 28px; font-weight: bold; color: #2e7d32; }
 #grupoPrecoAnterior[hidden] { display: none; }
 #formProduto input[type="number"] { max-width: 220px; }
+
+/* Ações dos painéis: tamanhos consistentes e grupos com espaçamento. */
+main button, main .botao-link {
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.35;
+    padding: 10px 16px;
+    min-height: 44px;
+    transition: background-color .15s, border-color .15s, box-shadow .15s;
+}
+main button:disabled {
+    background: #e4e7e5;
+    color: #606862;
+    border-color: #d4d9d5;
+    cursor: not-allowed;
+}
+.acoes-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid #e6ece7;
+    margin-top: 12px;
+    padding-top: 16px;
+}
+.produto .acoes-card button,
+#listaProdutos .produto .acoes-card button {
+    margin: 0;
+    align-self: auto;
+    min-width: 100px;
+}
+main .botao-secundario { background: #edf5ee; color: #245f28; border-color: #b8d4bb; }
+main .botao-secundario:hover { background: #dcecdf; border-color: #7caa82; }
+main .botao-alerta { background: #fff7e8; color: #84500c; border-color: #e5c797; }
+main .botao-alerta:hover { background: #ffedcc; border-color: #cda262; }
+main .botao-perigo { background: #fff; color: #b32727; border-color: #e3bbbb; }
+main .botao-perigo:hover { background: #fff0f0; border-color: #c77d7d; }
+#listaFornecedores .produto, #listaClientes .produto { overflow-wrap: anywhere; }
+#listaFornecedores .produto:hover, #listaClientes .produto:hover { transform: none; }
+#listaPedidos .pedido, #listaPedidosCliente .pedido {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #dfe7e0;
+    border-radius: 12px;
+}
+#listaPedidos .pedido h3, #listaPedidosCliente .pedido h3 { color: #245f28; margin-bottom: 10px; }
+#listaPedidos .pedido p, #listaPedidosCliente .pedido p { margin-bottom: 8px; }
+#listaPedidos .pedido ul, #listaPedidosCliente .pedido ul { padding-left: 22px; margin: 8px 0 14px; }
+.acoes-pedido {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e6ece7;
+}
+.acoes-pedido label { flex-basis: 100%; font-size: 14px; color: #46534a; }
+.acoes-pedido select { width: min(100%, 280px); min-height: 44px; }
+.acoes-pedido button { align-self: center; }
+main form > button[type="submit"] { margin-top: 8px; }
+#listaCarrinho .produto .botao-mais,
+#listaCarrinho .produto .botao-menos { min-width: 44px; min-height: 44px; }
+#listaCarrinho .produto button.botao-remover {
+    display: inline-block;
+    background: #fff;
+    color: #b32727;
+    border: 1px solid #e3bbbb;
+    margin-top: 12px;
+}
+#listaCarrinho .produto button.botao-remover:hover { background: #fff0f0; }
+@media (max-width: 420px) {
+    .acoes-card { gap: 8px; }
+    .produto .acoes-card button,
+    #listaProdutos .produto .acoes-card button { min-width: 0; flex: 1 1 90px; }
+    .acoes-pedido select { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    main button, main .botao-link { transition: none; }
+}
