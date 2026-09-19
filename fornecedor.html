@@ -118,7 +118,10 @@
                 >
 
 
-                <label for="logoUrl">Link da logo do mercado (opcional):</label>
+                <label for="fotoEstabelecimento">Foto ou logo do estabelecimento:</label>
+                <input type="file" id="fotoEstabelecimento" accept="image/jpeg,image/png,image/webp" aria-describedby="ajudaFoto">
+                <p id="ajudaFoto" class="texto-ajuda">Escolha uma imagem JPG, PNG ou WebP de até 5 MB. Ela será enviada ao salvar as informações e ficará visível aos clientes.</p>
+                <label for="logoUrl">Ou use um link de imagem (opcional):</label>
                 <input type="url" id="logoUrl" placeholder="https://exemplo.com/logo.png" aria-describedby="ajudaLogo">
                 <p id="ajudaLogo" class="texto-ajuda">Use o endereço HTTPS de uma imagem. Sem logo, mostramos as iniciais do mercado.</p>
                 <div id="previaLogo" class="icone-mercadinho" aria-label="Prévia da logo"></div>
@@ -345,7 +348,8 @@
 
     <script src="js/script.js"></script>
 
-    <script src="js/fornecedor.js"></script>
+    <script src="js/foto-estabelecimento.js?v=1"></script>
+    <script src="js/fornecedor.js?v=3"></script>
 
 </body>
 

@@ -49,6 +49,7 @@ async function mostrarSolicitacoes() {
             .from("pedidos")
             .select(`
                 id,
+                nome_cliente,
                 total,
                 status,
                 created_at,
@@ -146,6 +147,12 @@ async function mostrarSolicitacoes() {
                 "<h3>Solicitação #" +
                 pedido.id +
                 "</h3>" +
+
+                "<p><strong>Cliente / retirada:</strong> " +
+                Catalogo.escapar(pedido.nome_cliente || "Nome não informado") +
+                "</p>" +
+
+                "<p>Na retirada, informe o nome e o número desta solicitação.</p>" +
 
                 "<p>Data: " +
                 dataPedido +

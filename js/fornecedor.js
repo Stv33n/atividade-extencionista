@@ -76,6 +76,7 @@ async function mostrarPedidos() {
             .from("pedidos")
             .select(`
                 id,
+                nome_cliente,
                 total,
                 status,
                 created_at,
@@ -177,6 +178,10 @@ async function mostrarPedidos() {
                 "<h3>Pedido #" +
                 pedido.id +
                 "</h3>" +
+
+                "<p><strong>Cliente / retirada:</strong> " +
+                Catalogo.escapar(pedido.nome_cliente || "Nome não informado") +
+                "</p>" +
 
                 "<p>Data: " +
                 dataPedido +
@@ -425,6 +430,11 @@ if (formEstabelecimento) {
 
             event.preventDefault();
 
+            const botaoSalvar = formEstabelecimento.querySelector('button[type="submit"]');
+            if (botaoSalvar.disabled) return;
+            botaoSalvar.disabled = true;
+            botaoSalvar.textContent = "Salvando...";
+            try {
 
             const {
                 data: usuarioData,
@@ -450,7 +460,7 @@ if (formEstabelecimento) {
                 usuarioData.user;
 
 
-            const logoUrl = document.getElementById("logoUrl").value.trim();
+            const logoUrl = await FotoEstabelecimento.enviar(usuario.id);
             if (logoUrl && !Catalogo.urlImagem(logoUrl)) {
                 alert("Informe um endereço HTTPS válido para a logo.");
                 return;
@@ -604,7 +614,14 @@ if (formEstabelecimento) {
             );
 
 
-            carregarEstabelecimento();
+            await carregarEstabelecimento();
+
+            } catch (erro) {
+                alert(erro.message || "Não foi possível salvar o estabelecimento. Tente novamente.");
+            } finally {
+                botaoSalvar.disabled = false;
+                botaoSalvar.textContent = "Salvar informações";
+            }
 
         }
     );
@@ -620,6 +637,7 @@ mostrarPedidos();
 
 carregarEstabelecimento();
 function atualizarPreviaLogo() {
+    if (FotoEstabelecimento.mostrarPrevia()) return;
     Catalogo.logo(document.getElementById("previaLogo"), {
         nome_fantasia: document.getElementById("nomeFantasia").value || "Mercadinho",
         logo_url: document.getElementById("logoUrl").value
