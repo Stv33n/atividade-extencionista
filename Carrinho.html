@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Meu Carrinho | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Revise os produtos adicionados ao carrinho e faça sua solicitação para retirada no mercadinho."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, follow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="cliente-login.html">
+                Entrar
+            </a>
+
+            <a href="carrinho.html">
+                🛒 Carrinho
+            </a>
+
+            <a href="solicitacoes.html">
+                📋 Minhas solicitações
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="inicio">
+
+            <h2>
+                Meu Carrinho
+            </h2>
+
+            <p>
+                Revise os produtos e as quantidades
+                antes de solicitar a retirada.
+            </p>
+
+        </section>
+
+
+        <!-- PRODUTOS DO CARRINHO -->
+
+        <section
+            class="carrinho-area"
+            aria-labelledby="tituloCarrinho"
+        >
+
+            <h2 id="tituloCarrinho">
+                Produtos selecionados
+            </h2>
+
+            <div id="listaCarrinho"></div>
+
+        </section>
+
+
+        <!-- RESUMO -->
+
+        <section
+            class="resumo-carrinho"
+            aria-labelledby="tituloResumo"
+        >
+
+            <h2 id="tituloResumo">
+                Resumo
+            </h2>
+
+            <div class="resumo-linha">
+
+                <span>
+                    Total de itens:
+                </span>
+
+                <strong id="totalItens">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="resumo-linha total-final">
+
+                <span>
+                    Total estimado:
+                </span>
+
+                <strong>
+                    R$
+                    <span id="totalCompra">
+                        0,00
+                    </span>
+                </strong>
+
+            </div>
+
+
+            <p class="aviso-retirada">
+                O pagamento será realizado diretamente
+                no mercadinho no momento da retirada.
+            </p>
+
+
+            <button
+                id="finalizarCompra"
+                type="button"
+            >
+                Solicitar retirada
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/carrinho.js"></script>
+
+</body>
+
+</html>

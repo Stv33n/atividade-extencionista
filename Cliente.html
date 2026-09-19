@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Produtos do mercadinho | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Consulte os produtos disponíveis no mercadinho, com preços, estoque e promoções para retirada no estabelecimento."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="cliente-login.html">
+                Entrar
+            </a>
+
+            <a href="carrinho.html">
+                🛒 Carrinho
+            </a>
+
+            <a href="solicitacoes.html">
+                📋 Minhas solicitações
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="inicio">
+
+            <h2>
+                Produtos disponíveis
+            </h2>
+
+            <p>
+                Confira os produtos, preços, estoque
+                e promoções disponíveis neste mercadinho.
+            </p>
+
+        </section>
+
+
+        <section
+            class="lista-produtos"
+            aria-labelledby="tituloProdutos"
+        >
+
+            <h2 id="tituloProdutos">
+                Produtos
+            </h2>
+
+            <div id="listaProdutosCliente"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/cliente.js"></script>
+
+</body>
+
+</html>

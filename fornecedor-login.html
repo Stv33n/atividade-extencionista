@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login do Fornecedor | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Entre na área do fornecedor ou solicite o cadastro do seu mercadinho no Mercadinho Fácil."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, follow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="cliente-login.html">
+                Cliente
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="inicio">
+
+            <h2>
+                Área do Fornecedor
+            </h2>
+
+            <p>
+                Entre na sua conta ou solicite
+                o cadastro do seu mercadinho.
+            </p>
+
+        </section>
+
+
+        <section
+            class="area-login"
+            aria-label="Login e cadastro do fornecedor"
+        >
+
+            <!-- LOGIN -->
+
+            <div class="card-login">
+
+                <div
+                    class="icone-login"
+                    aria-hidden="true"
+                >
+                    🏪
+                </div>
+
+                <h2>
+                    Entrar
+                </h2>
+
+                <p class="texto-ajuda">
+                    Já possui cadastro aprovado?
+                    Entre com seu e-mail e senha.
+                </p>
+
+                <form id="formLogin">
+
+                    <label for="email">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="senha">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- CADASTRO -->
+
+            <div class="card-login">
+
+                <div
+                    class="icone-login"
+                    aria-hidden="true"
+                >
+                    📋
+                </div>
+
+                <h2>
+                    Cadastrar fornecedor
+                </h2>
+
+                <p class="texto-ajuda">
+                    Envie seus dados para solicitar
+                    acesso ao Mercadinho Fácil.
+                </p>
+
+                <form id="formCadastro">
+
+                    <label for="razaoSocial">
+                        Razão Social:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="razaoSocial"
+                        placeholder="Ex: Mercadinho Exemplo LTDA"
+                        autocomplete="organization"
+                        required
+                    >
+
+
+                    <label for="cnpj">
+                        CNPJ:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cnpj"
+                        placeholder="00.000.000/0000-00"
+                        inputmode="numeric"
+                        required
+                    >
+
+
+                    <label for="nomeFornecedor">
+                        Nome do responsável:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeFornecedor"
+                        placeholder="Nome do responsável"
+                        autocomplete="name"
+                        required
+                    >
+
+
+                    <label for="emailCadastro">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailCadastro"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="senhaCadastro">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaCadastro"
+                        placeholder="Crie uma senha"
+                        autocomplete="new-password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Solicitar cadastro
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/fornecedor-login.js"></script>
+
+</body>
+
+</html>

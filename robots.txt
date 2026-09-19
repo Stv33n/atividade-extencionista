@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /carrinho.html
+Disallow: /solicitacoes.html
+Disallow: /cliente-login.html
+Disallow: /fornecedor-login.html
+Disallow: /fornecedor.html
+Disallow: /desenvolvedor.html
+
+Sitemap: https://SEU-ENDERECO/sitemap.xml

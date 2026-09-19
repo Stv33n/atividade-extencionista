@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Minhas Solicitações | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Acompanhe o andamento das suas solicitações de retirada feitas pelo Mercadinho Fácil."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, follow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="cliente-login.html">
+                Entrar
+            </a>
+
+            <a href="carrinho.html">
+                🛒 Carrinho
+            </a>
+
+            <a href="solicitacoes.html">
+                📋 Minhas solicitações
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="inicio">
+
+            <h2>
+                Minhas solicitações
+            </h2>
+
+            <p>
+                Acompanhe aqui o andamento
+                das suas solicitações de retirada.
+            </p>
+
+        </section>
+
+
+        <section
+            class="solicitacoes-area"
+            aria-labelledby="tituloHistorico"
+        >
+
+            <h2 id="tituloHistorico">
+                Histórico de solicitações
+            </h2>
+
+            <div id="listaPedidosCliente"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/solicitacoes.js"></script>
+
+</body>
+
+</html>

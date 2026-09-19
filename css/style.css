@@ -1,0 +1,982 @@
+/* ==========================================
+   GERAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.5;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   CABEÇALHO E MENU
+========================================== */
+
+header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background-color: #1b5e20;
+}
+
+
+/* ==========================================
+   SEÇÃO DE APRESENTAÇÃO
+========================================== */
+
+.inicio {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.inicio h2 {
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   FORMULÁRIOS
+========================================== */
+
+.cadastro {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.cadastro h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+input[type="number"] {
+    max-width: 100px;
+}
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+button,
+.botao-link {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+button:hover,
+.botao-link:hover {
+    background-color: #1b5e20;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.botao-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao-link.secundario {
+    background-color: white;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+}
+
+.botao-link.secundario:hover {
+    background-color: #f1f8f2;
+}
+
+
+/* ==========================================
+   PRODUTOS E PEDIDOS
+========================================== */
+
+.lista-produtos,
+.pedidos {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.lista-produtos h2,
+.pedidos h2 {
+    margin-bottom: 20px;
+}
+
+#listaProdutosCliente {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.produto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.2s;
+}
+
+.produto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+}
+
+.produto h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.produto p {
+    margin-bottom: 8px;
+}
+
+.produto button {
+    margin-top: auto;
+}
+
+
+/* ==========================================
+   IMAGEM DO PRODUTO
+========================================== */
+
+.imagem-produto,
+.sem-imagem {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 15px;
+}
+
+.imagem-produto {
+    object-fit: contain;
+    display: block;
+}
+
+.sem-imagem {
+    background-color: #eee;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   PÁGINA INICIAL
+========================================== */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #2e7d32,
+        #43a047
+    );
+
+    color: white;
+    padding: 50px 30px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    font-size: 18px;
+}
+
+.hero-botoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.acesso-home h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.opcoes-acesso {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card-acesso,
+.destaque {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+.card-acesso {
+    transition: 0.2s;
+}
+
+.card-acesso:hover {
+    transform: translateY(-4px);
+}
+
+.icone-acesso {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.card-acesso h3,
+.destaque h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.card-acesso p {
+    margin-bottom: 18px;
+    color: #444;
+}
+
+.destaques-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.destaque {
+    padding: 22px;
+}
+
+.como-funciona {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.como-funciona h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.passo {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.passo span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    background-color: #2e7d32;
+    color: white;
+
+    border-radius: 50%;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   MERCADINHOS
+========================================== */
+
+.lista-mercadinhos {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+#listaMercadinhos {
+    display: grid;
+    gap: 20px;
+}
+
+.card-mercadinho {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 22px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.06);
+
+    transition: 0.2s;
+}
+
+.card-mercadinho:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(0, 0, 0, 0.10);
+}
+
+.topo-mercadinho {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 20px;
+}
+
+.icone-mercadinho {
+    width: 100px;
+    height: 100px;
+
+    background-color: #f1f8f2;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 50px;
+    flex-shrink: 0;
+}
+
+.info-mercadinho {
+    flex: 1;
+}
+
+.info-mercadinho h3 {
+    color: #2e7d32;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.info-mercadinho p {
+    margin-bottom: 7px;
+    color: #333;
+}
+
+.descricao-mercadinho {
+    margin-top: 12px;
+    color: #555;
+}
+
+.card-mercadinho .verProdutos {
+    width: 100%;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   CARRINHO
+========================================== */
+
+.carrinho-area,
+.resumo-carrinho,
+.solicitacoes-area {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.carrinho-area h2,
+.resumo-carrinho h2,
+.solicitacoes-area h2 {
+    margin-bottom: 20px;
+}
+
+.resumo-carrinho {
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.08);
+}
+
+.resumo-carrinho h2 {
+    color: #2e7d32;
+}
+
+#listaCarrinho {
+    display: grid;
+    gap: 15px;
+}
+
+#listaCarrinho .produto {
+    display: block;
+    padding: 20px;
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.06);
+}
+
+#listaCarrinho .produto h3 {
+    font-size: 22px;
+}
+
+#listaCarrinho input[type="number"] {
+    width: 80px;
+    max-width: 80px;
+    height: 38px;
+
+    text-align: center;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+#listaCarrinho .produto button {
+    width: auto;
+    min-width: 40px;
+
+    padding: 8px 12px;
+    margin: 5px 4px 5px 0;
+
+    display: inline-block;
+}
+
+#listaCarrinho .produto button:last-child {
+    display: block;
+    background-color: #c62828;
+    margin-top: 10px;
+    padding: 8px 16px;
+}
+
+#listaCarrinho .produto button:last-child:hover {
+    background-color: #8e0000;
+}
+
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.total-final {
+    font-size: 20px;
+    border-bottom: none;
+}
+
+#totalItens,
+#totalCompra {
+    font-weight: bold;
+}
+
+.aviso-retirada {
+    margin: 20px 0 15px;
+    padding: 12px;
+
+    background-color: #f1f8f2;
+
+    border-radius: 8px;
+    color: #444;
+}
+
+#finalizarCompra {
+    width: 100%;
+    padding: 13px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   MINHAS SOLICITAÇÕES
+========================================== */
+
+#listaPedidosCliente {
+    display: grid;
+    gap: 18px;
+}
+
+#listaPedidosCliente .produto {
+    border-left: 5px solid #2e7d32;
+    padding: 20px;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.06);
+}
+
+#listaPedidosCliente .produto h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+#listaPedidosCliente strong {
+    color: #2e7d32;
+}
+
+
+/* ==========================================
+   BOTÕES DE SAIR
+========================================== */
+
+#sairFornecedor,
+#sairAdmin {
+    background-color: #c62828;
+}
+
+#sairFornecedor:hover,
+#sairAdmin:hover {
+    background-color: #8e0000;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    #listaProdutosCliente,
+    .passos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .opcoes-acesso,
+    .destaques-home {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 95%;
+        margin-top: 20px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    #listaProdutosCliente,
+    .passos {
+        grid-template-columns: 1fr;
+    }
+
+    .imagem-produto,
+    .sem-imagem {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cadastro,
+    .lista-produtos,
+    .pedidos,
+    .inicio,
+    .lista-mercadinhos,
+    .carrinho-area,
+    .resumo-carrinho,
+    .solicitacoes-area {
+        padding: 18px;
+    }
+
+    .hero {
+        padding: 35px 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .topo-mercadinho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .icone-mercadinho {
+        width: 85px;
+        height: 85px;
+        font-size: 42px;
+    }
+
+    .info-mercadinho h3 {
+        font-size: 22px;
+    }
+
+    .resumo-linha {
+        gap: 10px;
+    }
+
+}
+
+/* ==========================================
+   ÁREA DO FORNECEDOR
+========================================== */
+
+.painel-fornecedor {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.06);
+}
+
+.painel-fornecedor h2 {
+    margin-bottom: 5px;
+    color: #2e7d32;
+}
+
+.texto-ajuda {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   FORMULÁRIO EM DUAS COLUNAS
+========================================== */
+
+.linha-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.linha-formulario div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ==========================================
+   PRODUTOS DO FORNECEDOR
+========================================== */
+
+#listaProdutos {
+    display: grid;
+    gap: 15px;
+}
+
+#listaProdutos .produto {
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.05);
+}
+
+#listaProdutos .produto button {
+    width: auto;
+    align-self: flex-start;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+
+/* ==========================================
+   PEDIDOS DO FORNECEDOR
+========================================== */
+
+#listaPedidos {
+    display: grid;
+    gap: 15px;
+}
+
+#listaPedidos .produto {
+    border-left: 5px solid #2e7d32;
+}
+
+
+/* ==========================================
+   BOTÃO SAIR
+========================================== */
+
+#sairFornecedor {
+    margin-top: 20px;
+    background-color: #c62828;
+}
+
+#sairFornecedor:hover {
+    background-color: #8e0000;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+    .linha-formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-fornecedor {
+        padding: 18px;
+    }
+
+}
+
+/* ==========================================
+   LOGIN DO CLIENTE
+========================================== */
+
+.area-login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-login {
+    background-color: white;
+    padding: 28px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.07);
+}
+
+.card-login h2 {
+    color: #2e7d32;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.icone-login {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.card-login .texto-ajuda {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-login button {
+    margin-top: 8px;
+}
+
+
+/* ==========================================
+   CELULAR - LOGIN
+========================================== */
+
+@media (max-width: 700px) {
+
+    .area-login {
+        grid-template-columns: 1fr;
+    }
+
+    .card-login {
+        padding: 20px;
+    }
+
+}
+
+/* ==========================================
+   ÁREA DO ADMINISTRADOR
+========================================== */
+
+.area-admin-login {
+    max-width: 520px;
+    margin: 40px auto;
+}
+
+.card-admin-login {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.08);
+}
+
+.card-admin-login h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.card-admin-login .texto-ajuda {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.painel-admin {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.06);
+}
+
+.painel-admin h2 {
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+#listaFornecedores,
+#listaClientes {
+    display: grid;
+    gap: 15px;
+}
+
+#listaFornecedores .produto,
+#listaClientes .produto {
+    box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.05);
+}
+
+#sairAdmin {
+    margin-top: 20px;
+}
+
+
+/* ==========================================
+   CELULAR - ADMIN
+========================================== */
+
+@media (max-width: 600px) {
+
+    .card-admin-login,
+    .painel-admin {
+        padding: 18px;
+    }
+
+}
+
+.titulo-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

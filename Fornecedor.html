@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Área do Fornecedor | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Gerencie seu estabelecimento, produtos, estoque e pedidos na área do fornecedor do Mercadinho Fácil."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="fornecedor.html">
+                Fornecedor
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- TOPO DA ÁREA -->
+
+        <section class="inicio">
+
+            <h2>
+                Área do Fornecedor
+            </h2>
+
+            <p>
+                Gerencie seu estabelecimento,
+                produtos, estoque e pedidos.
+            </p>
+
+            <button
+                id="sairFornecedor"
+                type="button"
+            >
+                Sair da conta
+            </button>
+
+        </section>
+
+
+        <!-- DADOS DO ESTABELECIMENTO -->
+
+        <section
+            class="painel-fornecedor"
+            aria-labelledby="tituloEstabelecimento"
+        >
+
+            <h2 id="tituloEstabelecimento">
+                🏪 Dados do estabelecimento
+            </h2>
+
+            <p class="texto-ajuda">
+                Mantenha as informações do seu mercadinho atualizadas.
+            </p>
+
+            <form id="formEstabelecimento">
+
+                <label for="nomeFantasia">
+                    Nome do estabelecimento:
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeFantasia"
+                    placeholder="Ex: Mercadinho São João"
+                    autocomplete="organization"
+                    required
+                >
+
+
+                <label for="endereco">
+                    Endereço:
+                </label>
+
+                <input
+                    type="text"
+                    id="endereco"
+                    placeholder="Rua, número e bairro"
+                    autocomplete="street-address"
+                    required
+                >
+
+
+                <label for="telefone">
+                    Telefone / WhatsApp:
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="(85) 99999-9999"
+                    autocomplete="tel"
+                    required
+                >
+
+
+                <label for="horario">
+                    Horário de funcionamento:
+                </label>
+
+                <input
+                    type="text"
+                    id="horario"
+                    placeholder="Ex: Segunda a sábado, 8h às 20h"
+                    required
+                >
+
+
+                <label for="descricao">
+                    Descrição do estabelecimento:
+                </label>
+
+                <textarea
+                    id="descricao"
+                    placeholder="Conte um pouco sobre o seu mercadinho"
+                ></textarea>
+
+
+                <button type="submit">
+                    Salvar informações
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- CADASTRO DE PRODUTO -->
+
+        <section
+            class="painel-fornecedor"
+            aria-labelledby="tituloCadastroProduto"
+        >
+
+            <h2 id="tituloCadastroProduto">
+                📦 Cadastrar produto
+            </h2>
+
+            <p class="texto-ajuda">
+                Cadastre um novo produto ou atualize
+                preço, estoque e promoção.
+            </p>
+
+            <form id="formProduto">
+
+                <label for="nome">
+                    Nome do produto:
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Ex: arroz, feijão, banana..."
+                    list="sugestoesProdutos"
+                    autocomplete="off"
+                    required
+                >
+
+                <datalist id="sugestoesProdutos"></datalist>
+
+
+                <div class="linha-formulario">
+
+                    <div>
+
+                        <label for="preco">
+                            Preço:
+                        </label>
+
+                        <input
+                            type="number"
+                            id="preco"
+                            placeholder="Ex: 28.90"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="estoque">
+                            Quantidade em estoque:
+                        </label>
+
+                        <input
+                            type="number"
+                            id="estoque"
+                            placeholder="Ex: 15"
+                            min="0"
+                            step="1"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label for="promocao">
+                    Está em promoção?
+                </label>
+
+                <select id="promocao">
+
+                    <option value="nao">
+                        Não
+                    </option>
+
+                    <option value="sim">
+                        Sim
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Cadastrar produto
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- PRODUTOS -->
+
+        <section
+            class="painel-fornecedor"
+            aria-labelledby="tituloProdutosCadastrados"
+        >
+
+            <h2 id="tituloProdutosCadastrados">
+                📋 Produtos cadastrados
+            </h2>
+
+            <div id="listaProdutos"></div>
+
+        </section>
+
+
+        <!-- PEDIDOS -->
+
+        <section
+            class="painel-fornecedor"
+            aria-labelledby="tituloPedidosRecebidos"
+        >
+
+            <h2 id="tituloPedidosRecebidos">
+                🛒 Pedidos recebidos
+            </h2>
+
+            <div id="listaPedidos"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/script.js"></script>
+
+    <script src="js/fornecedor.js"></script>
+
+</body>
+
+</html>

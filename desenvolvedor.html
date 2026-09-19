@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Área do Administrador | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Área administrativa do Mercadinho Fácil."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- LOGIN DO ADMINISTRADOR -->
+
+        <section
+            class="area-admin-login"
+            id="loginDesenvolvedor"
+            aria-labelledby="tituloLoginAdmin"
+        >
+
+            <div class="card-admin-login">
+
+                <div
+                    class="icone-login"
+                    aria-hidden="true"
+                >
+                    🔐
+                </div>
+
+                <h2 id="tituloLoginAdmin">
+                    Área do Administrador
+                </h2>
+
+                <p class="texto-ajuda">
+                    Acesso exclusivo para administração
+                    do Mercadinho Fácil.
+                </p>
+
+                <form id="formAdmin">
+
+                    <label for="emailAdmin">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailAdmin"
+                        placeholder="E-mail do administrador"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="senhaAdmin">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaAdmin"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAINEL DO ADMINISTRADOR -->
+
+        <section
+            id="areaAdmin"
+            style="display: none;"
+        >
+
+            <section class="inicio">
+
+                <h2>
+                    Painel do Administrador
+                </h2>
+
+                <p>
+                    Gerencie fornecedores e consulte
+                    os clientes cadastrados.
+                </p>
+
+                <button
+                    id="sairAdmin"
+                    type="button"
+                >
+                    Sair da conta
+                </button>
+
+            </section>
+
+
+            <!-- FORNECEDORES -->
+
+            <section
+                class="painel-admin"
+                aria-labelledby="tituloFornecedoresAdmin"
+            >
+
+                <h2 id="tituloFornecedoresAdmin">
+                    🏪 Fornecedores
+                </h2>
+
+                <p class="texto-ajuda">
+                    Aprove, recuse ou gerencie
+                    os fornecedores cadastrados.
+                </p>
+
+                <div id="listaFornecedores"></div>
+
+            </section>
+
+
+            <!-- CLIENTES -->
+
+            <section
+                class="painel-admin"
+                aria-labelledby="tituloClientesAdmin"
+            >
+
+                <h2 id="tituloClientesAdmin">
+                    👤 Clientes
+                </h2>
+
+                <p class="texto-ajuda">
+                    Consulte os clientes cadastrados
+                    na plataforma.
+                </p>
+
+                <div id="listaClientes"></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/desenvolvedor.js"></script>
+
+</body>
+
+</html>

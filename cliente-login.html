@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login do Cliente | Mercadinho Fácil
+    </title>
+
+    <meta
+        name="description"
+        content="Entre na sua conta ou crie um cadastro para solicitar produtos e acompanhar suas retiradas no Mercadinho Fácil."
+    >
+
+    <meta
+        name="robots"
+        content="noindex, follow"
+    >
+
+    <meta
+        name="author"
+        content="Mercadinho Fácil"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Mercadinho Fácil
+        </h1>
+
+        <nav aria-label="Navegação principal">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="mercadinhos.html">
+                Mercadinhos
+            </a>
+
+            <a href="carrinho.html">
+                🛒 Carrinho
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="inicio">
+
+            <h2>
+                Área do Cliente
+            </h2>
+
+            <p>
+                Entre na sua conta para solicitar produtos
+                ou crie uma conta gratuitamente.
+            </p>
+
+        </section>
+
+
+        <section
+            class="area-login"
+            aria-label="Login e cadastro do cliente"
+        >
+
+            <!-- LOGIN -->
+
+            <div class="card-login">
+
+                <div
+                    class="icone-login"
+                    aria-hidden="true"
+                >
+                    👤
+                </div>
+
+                <h2>
+                    Entrar
+                </h2>
+
+                <p class="texto-ajuda">
+                    Já possui uma conta? Entre com seu e-mail e senha.
+                </p>
+
+                <form id="formLoginCliente">
+
+                    <label for="emailCliente">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailCliente"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="senhaCliente">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaCliente"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- CADASTRO -->
+
+            <div class="card-login">
+
+                <div
+                    class="icone-login"
+                    aria-hidden="true"
+                >
+                    ✨
+                </div>
+
+                <h2>
+                    Criar conta
+                </h2>
+
+                <p class="texto-ajuda">
+                    Crie sua conta para acompanhar suas solicitações.
+                </p>
+
+                <form id="formCadastroCliente">
+
+                    <label for="nomeCliente">
+                        Nome:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeCliente"
+                        placeholder="Seu nome"
+                        autocomplete="name"
+                        required
+                    >
+
+
+                    <label for="emailCadastroCliente">
+                        E-mail:
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailCadastroCliente"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="senhaCadastroCliente">
+                        Senha:
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaCadastroCliente"
+                        placeholder="Crie uma senha"
+                        autocomplete="new-password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Criar conta
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/cliente-login.js"></script>
+
+</body>
+
+</html>
