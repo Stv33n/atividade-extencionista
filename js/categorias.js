@@ -32,7 +32,7 @@ function renderizarProdutos() {
         const imagemUrl = Catalogo.urlImagem(encontrarImagem(produto.nome));
         const imagem = imagemUrl
             ? `<img src="${Catalogo.escapar(imagemUrl)}" alt="${Catalogo.escapar(produto.nome)}" class="imagem-produto" loading="lazy">`
-            : '<div class="sem-imagem">📦 Produto sem imagem</div>';
+            : '<div class="sem-imagem"><svg class="icone-interface" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 7 9-5 9 5v10l-9 5-9-5V7Zm0 0 9 5 9-5M12 12v10M7.5 4.5l9 5"/></svg> Produto sem imagem</div>';
         card.innerHTML = `${imagem}
             <h3>${Catalogo.escapar(produto.nome)}</h3>
             <p>${Catalogo.escapar(Catalogo.medida(produto))}</p>
@@ -42,7 +42,7 @@ function renderizarProdutos() {
         const botao = document.createElement("button");
         botao.type = "button";
         botao.disabled = !(Number(produto.estoque) > 0);
-        botao.textContent = botao.disabled ? "Esgotado" : "🛒 Adicionar à lista";
+        botao.textContent = botao.disabled ? "Esgotado" : "Adicionar à lista";
         botao.addEventListener("click", () => adicionarAoCarrinho(indice));
         card.appendChild(botao);
         listaProdutosCliente.appendChild(card);

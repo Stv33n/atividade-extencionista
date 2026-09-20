@@ -24,3 +24,16 @@
 .rodape-inicio a { display: inline-flex; align-items: center; min-height: 44px; color: #536159; text-underline-offset: 4px; }
 .rodape-inicio a:hover { color: #215e2a; }
 @media (max-width: 600px) { .rodape-inicio { width: 95%; padding: 20px 12px; } }
+
+/* Banner mais curto para antecipar as ofertas. */
+.hero { padding: 36px 28px; margin-bottom: 24px; }
+@media (max-width: 600px) {
+    main { margin-top: 14px; }
+    .hero { padding: 24px 18px; margin-bottom: 18px; }
+    .hero h2 { font-size: 25px; margin-bottom: 12px; }
+    .hero p { font-size: 15px; line-height: 1.5; margin-bottom: 18px; }
+    .hero-botoes { gap: 10px; }
+    .hero .hero-botoes .botao-link { padding: 10px 12px; }
+    .ofertas-home { margin-bottom: 20px; }
+    .ofertas-topo { margin-bottom: 16px; }
+}

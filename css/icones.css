@@ -1,0 +1,6 @@
+/* Ícones vetoriais decorativos: a descrição permanece no texto ao lado. */
+.icone-interface { width: 1.15em; height: 1.15em; display: inline-block; vertical-align: -.18em; flex-shrink: 0; }
+header nav a { gap: 7px; }
+h2 .icone-interface, h3 .icone-interface, strong .icone-interface { margin-right: .2em; }
+.icone-login .icone-interface { width: 40px; height: 40px; color: #287c3c; }
+.sem-imagem .icone-interface { width: 24px; height: 24px; }
