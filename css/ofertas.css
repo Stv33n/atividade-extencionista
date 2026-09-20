@@ -1,0 +1,30 @@
+.ofertas-home { background: #fff; padding: 26px; border: 1px solid #dfe8df; border-radius: 16px; }
+.ofertas-topo { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 22px; }
+.ofertas-etiqueta { color: #347344; font-size: 11px; font-weight: bold; letter-spacing: 1.2px; }
+.ofertas-topo h2 { margin: 5px 0 8px; color: #194f2b; font-size: 26px; }
+.ofertas-topo p { max-width: 660px; font-size: 14px; color: #58625a; }
+.ofertas-controles { display: flex; gap: 8px; flex-shrink: 0; }
+.ofertas-controles button { width: 44px; height: 44px; padding: 0; border-radius: 50%; font-size: 23px; }
+.ofertas-faixa { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 3px 3px 18px; scrollbar-width: thin; scrollbar-color: #99bc9e #edf3ee; }
+.oferta-item { flex: 0 0 250px; min-width: 0; scroll-snap-align: start; display: flex; }
+.oferta-card { display: flex; flex-direction: column; width: 100%; border: 1px solid #dce6dd; border-radius: 12px; padding: 16px; text-decoration: none; color: #222; transition: border-color .15s, box-shadow .15s; }
+.oferta-card:hover { border-color: #73a67c; box-shadow: 0 4px 14px #1b5e2012; }
+.oferta-card:focus-visible { outline-offset: -3px; }
+.oferta-imagem { height: 136px; width: 100%; object-fit: contain; margin: 10px 0 16px; }
+.oferta-sem-imagem { height: 136px; display: grid; place-items: center; background: #f5f8f4; border-radius: 8px; color: #66756a; margin: 10px 0 16px; font-size: 14px; }
+.oferta-selo { align-self: flex-start; padding: 4px 8px; border-radius: 5px; background: #eaf5df; color: #285b21; font-size: 12px; font-weight: bold; }
+.oferta-card h3 { font-size: 18px; color: #194f2b; overflow-wrap: anywhere; }
+.oferta-medida { color: #68716a; margin: 3px 0 12px; font-size: 14px; }
+.oferta-anterior { color: #707870; font-size: 13px; }
+.oferta-preco { color: #1b642f; font-size: 25px; margin: 2px 0 16px; }
+.oferta-mercado { display: flex; align-items: center; gap: 8px; border-top: 1px solid #e7ede7; padding-top: 12px; margin-top: auto; font-size: 13px; overflow-wrap: anywhere; }
+.oferta-mercado .icone-mercadinho { width: 32px; height: 32px; border-radius: 8px; font-size: 12px; }
+.oferta-destino { display: block; color: #286e37; font-weight: bold; margin-top: 12px; font-size: 13px; }
+#estadoOfertas { color: #5e6b61; font-size: 14px; }
+@media (max-width: 600px) {
+    .ofertas-home { padding: 18px 14px; }
+    .ofertas-topo { flex-wrap: wrap; gap: 12px; }
+    .ofertas-topo h2 { font-size: 23px; }
+    .oferta-item { flex-basis: min(250px, 82vw); }
+}
+@media (prefers-reduced-motion: reduce) { .oferta-card { transition: none; } }

@@ -35,6 +35,7 @@
     >
 
     <link rel="stylesheet" href="css/cabecalho.css?v=1">
+    <link rel="stylesheet" href="css/ofertas.css?v=1">
 </head>
 
 <body>
@@ -123,6 +124,22 @@
 
         </section>
 
+
+        <section class="ofertas-home" aria-labelledby="tituloOfertas">
+            <div class="ofertas-topo">
+                <div>
+                    <span class="ofertas-etiqueta">ECONOMIZE NO SEU BAIRRO</span>
+                    <h2 id="tituloOfertas">Ofertas dos mercadinhos</h2>
+                    <p>O menor preço entre as promoções cadastradas de cada produto, comparando a mesma quantidade. Toque na oferta para visitar o mercado.</p>
+                </div>
+                <div class="ofertas-controles" role="group" aria-label="Navegar pelas ofertas">
+                    <button id="ofertasAnterior" type="button" aria-label="Ofertas anteriores" aria-controls="listaOfertas" disabled>←</button>
+                    <button id="ofertasProxima" type="button" aria-label="Próximas ofertas" aria-controls="listaOfertas" disabled>→</button>
+                </div>
+            </div>
+            <p id="estadoOfertas" role="status">Buscando ofertas...</p>
+            <div id="listaOfertas" class="ofertas-faixa" role="list" aria-label="Produtos em promoção"></div>
+        </section>
 
         <!-- COMO DESEJA ACESSAR -->
 
@@ -313,6 +330,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
 <script src="js/sessao.js?v=2"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/ofertas.js?v=1"></script>
 </body>
 
 </html>

@@ -136,10 +136,13 @@ async function mostrarProdutos() {
         "<p>Carregando produtos...</p>";
 
 
-    const fornecedorId =
+    const mercadoDoLink = new URLSearchParams(window.location.search).get("mercado");
+    const fornecedorId = mercadoDoLink ||
         localStorage.getItem(
             "mercadinhoSelecionado"
         );
+
+    if (mercadoDoLink) localStorage.setItem("mercadinhoSelecionado", mercadoDoLink);
 
 
     if (!fornecedorId) {
