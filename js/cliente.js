@@ -200,7 +200,7 @@ async function mostrarProdutos() {
 // ADICIONAR AO CARRINHO
 // ==========================================
 
-function adicionarAoCarrinho(indice) {
+async function adicionarAoCarrinho(indice) {
 
     const produto =
         produtos[indice];
@@ -218,10 +218,13 @@ function adicionarAoCarrinho(indice) {
     }
 
 
-    let carrinho =
-        JSON.parse(
-            localStorage.getItem("carrinho")
-        ) || [];
+    let carrinho;
+    try { carrinho = await CarrinhoLocal.ler(); }
+    catch { alert("Não foi possível carregar sua lista. Atualize a página."); return; }
+    if (carrinho.some(item => String(item.fornecedor_id) !== String(produto.fornecedor_id))) {
+        alert("Sua lista já tem produtos de outro mercadinho. Finalize ou esvazie a lista antes de adicionar produtos deste mercado.");
+        return;
+    }
 
 
     const produtoExistente =
@@ -282,10 +285,7 @@ function adicionarAoCarrinho(indice) {
     }
 
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
+    CarrinhoLocal.salvar(carrinho);
 
 
     alert(

@@ -11,10 +11,8 @@ const botaoFinalizar =
     document.getElementById("finalizarCompra");
 
 
-let carrinho =
-    JSON.parse(
-        localStorage.getItem("carrinho")
-    ) || [];
+let carrinho = [];
+let enviandoPedido = false;
 
 
 let estoques = {};
@@ -42,10 +40,7 @@ function formatarPreco(valor) {
 
 function salvarCarrinho() {
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
+    CarrinhoLocal.salvar(carrinho);
 
 }
 
@@ -186,7 +181,7 @@ async function mostrarCarrinho() {
                     type="number"
                     id="quantidade-${indice}"
                     min="1"
-                    value="${item.quantidade}"
+                    value="${Number(item.quantidade)}"
                 >
 
                 <button
@@ -706,6 +701,13 @@ function removerDoCarrinho(indice) {
 botaoFinalizar.addEventListener(
     "click",
     async function() {
+        if (enviandoPedido) return;
+        enviandoPedido = true;
+        botaoFinalizar.disabled = true;
+        listaCarrinho.inert = true;
+        pararAlteracao();
+        try {
+        await CarrinhoLocal.pronto;
 
         if (
             carrinho.length === 0
@@ -751,6 +753,11 @@ botaoFinalizar.addEventListener(
             return;
         }
 
+
+        if (usuarioData.user.id !== CarrinhoLocal.usuario) {
+            alert("A conta mudou. Atualize a página antes de enviar sua lista.");
+            return;
+        }
 
         // Produtos antigos/inválidos
         const produtoInvalido =
@@ -849,8 +856,7 @@ botaoFinalizar.addEventListener(
             );
 
 
-        botaoFinalizar.disabled =
-            false;
+
 
 
         if (error) {
@@ -881,6 +887,14 @@ botaoFinalizar.addEventListener(
             "O pagamento será realizado diretamente no mercadinho."
         );
 
+        } catch (erro) {
+            console.error("Erro ao enviar solicitação:", erro);
+            alert("Não foi possível confirmar o envio. Confira Minhas solicitações antes de tentar novamente.");
+        } finally {
+            enviandoPedido = false;
+            botaoFinalizar.disabled = false;
+            listaCarrinho.inert = false;
+        }
     }
 );
 
@@ -889,4 +903,12 @@ botaoFinalizar.addEventListener(
 // INICIAR
 // ==========================================
 
-mostrarCarrinho();
+CarrinhoLocal.ler().then(itens => {
+    carrinho = itens;
+    return mostrarCarrinho();
+}).catch(erro => {
+    console.error("Erro ao carregar lista:", erro);
+    listaCarrinho.textContent = "Não foi possível carregar sua lista. Atualize a página.";
+    botaoFinalizar.disabled = true;
+});
+window.addEventListener("conta-carrinho-alterada", () => window.location.reload());

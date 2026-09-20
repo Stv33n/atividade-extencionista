@@ -168,23 +168,23 @@ async function mostrarFornecedores() {
             div.innerHTML =
 
                 "<h3>" +
-                fornecedor.razao_social +
+                Catalogo.escapar(fornecedor.razao_social) +
                 "</h3>" +
 
                 "<p>CNPJ: " +
-                fornecedor.cnpj +
+                Catalogo.escapar(fornecedor.cnpj) +
                 "</p>" +
 
                 "<p>Responsável: " +
-                fornecedor.nome_responsavel +
+                Catalogo.escapar(fornecedor.nome_responsavel) +
                 "</p>" +
 
                 "<p>E-mail: " +
-                fornecedor.email +
+                Catalogo.escapar(fornecedor.email) +
                 "</p>" +
 
                 "<p>Status: <strong>" +
-                fornecedor.status +
+                Catalogo.escapar(fornecedor.status) +
                 "</strong></p>" +
 
                 "<div class='acoes-card' role='group' aria-label='Ações do fornecedor'>" +
@@ -324,11 +324,11 @@ async function mostrarClientes() {
             div.innerHTML =
 
                 "<h3>" +
-                cliente.nome +
+                Catalogo.escapar(cliente.nome) +
                 "</h3>" +
 
                 "<p>E-mail: " +
-                cliente.email +
+                Catalogo.escapar(cliente.email) +
                 "</p>" +
 
                 "<p>Data do cadastro: " +

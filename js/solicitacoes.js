@@ -118,11 +118,11 @@ async function mostrarSolicitacoes() {
 
                         "<li>" +
 
-                        nome +
+                        Catalogo.escapar(nome) +
 
                         " - " +
 
-                        item.quantidade +
+                        Number(item.quantidade) +
 
                         " unidade(s)" +
 
@@ -171,7 +171,7 @@ async function mostrarSolicitacoes() {
                 "</p>" +
 
                 "<p>Status: <strong>" +
-                pedido.status +
+                Catalogo.escapar(pedido.status) +
                 "</strong></p>" +
 
                 "</div>";

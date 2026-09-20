@@ -146,11 +146,11 @@ async function mostrarPedidos() {
 
                         "<li>" +
 
-                        nome +
+                        Catalogo.escapar(nome) +
 
                         " - Quantidade: " +
 
-                        item.quantidade +
+                        Number(item.quantidade) +
 
                         "</li>";
 
@@ -201,7 +201,7 @@ async function mostrarPedidos() {
                 "</p>" +
 
                 "<p>Status atual: <strong>" +
-                pedido.status +
+                Catalogo.escapar(pedido.status) +
                 "</strong></p>" +
 
                 "<div class='acoes-pedido'>" +
