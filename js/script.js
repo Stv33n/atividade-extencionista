@@ -172,67 +172,30 @@ async function mostrarProdutos() {
     }
 
 
-    produtos.forEach(
-        function(produto) {
-
-            const promocao =
-                produto.promocao
-                    ? "Sim"
-                    : "Não";
-
-
-            listaProdutos.innerHTML += `
-
-                <div class="produto">
-
-                    <h3>
-                        ${Catalogo.escapar(produto.nome)}
-                    </h3>
-
-                    ${Catalogo.preco(produto)}<p>${Catalogo.escapar(Catalogo.medida(produto))} · ${Catalogo.escapar(produto.categoria || "Outros")}</p>
-
-                    <p>
-                        Estoque:
-                        ${produto.estoque} embalagem(ns)/porção(ões)
-                    </p>
-
-                    <p>
-                        Disponibilidade:
-                        ${
-                            Number(produto.estoque) > 0
-                                ? "Disponível"
-                                : "Esgotado"
-                        }
-                    </p>
-
-                    <p>
-                        Promoção:
-                        ${promocao}
-                    </p>
-
-                    <div class="acoes-card" role="group" aria-label="Ações do produto">
-                    <button type="button" class="botao-secundario"
-                        onclick="editarProduto(${produto.id})"
-                    >
-                        Editar
-                    </button>
-
-                    <button type="button" class="botao-perigo"
-                        onclick="excluirProduto(${produto.id})"
-                    >
-                        Excluir
-                    </button>
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-    );
-
+    listaProdutos.innerHTML = produtos.map(produto => `
+        <article class="produto produto-fornecedor">
+            <div class="produto-identificacao">
+                <h3>${Catalogo.escapar(produto.nome)}</h3>
+                <p>${Catalogo.escapar(produto.categoria || "Outros")} · ${Catalogo.escapar(Catalogo.medida(produto))}</p>
+            </div>
+            <div class="produto-valores">
+                ${Catalogo.preco(produto)}
+                <p>Promoção: ${produto.promocao ? "Sim" : "Não"}</p>
+            </div>
+            <div class="produto-estoque">
+                <p><strong>Estoque: ${Catalogo.escapar(produto.estoque)}</strong>
+                    <span class="estoque-unidade">embalagens/porções</span></p>
+                <p class="produto-disponibilidade ${Number(produto.estoque) > 0 ? "disponivel" : "esgotado"}">
+                    ${Number(produto.estoque) > 0 ? "Disponível" : "Esgotado"}
+                </p>
+            </div>
+            <div class="acoes-card" role="group" aria-label="Ações de ${Catalogo.escapar(produto.nome)}">
+                <button type="button" class="botao-secundario" onclick="editarProduto(${produto.id})">Editar</button>
+                <button type="button" class="botao-perigo" onclick="excluirProduto(${produto.id})">Excluir</button>
+            </div>
+        </article>
+    `).join("");
 }
-
 
 // ==========================================
 // CADASTRAR / EDITAR PRODUTO

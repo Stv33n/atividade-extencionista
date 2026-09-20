@@ -1,0 +1,42 @@
+.atalho-produtos {
+    display: inline-block;
+    margin: 12px 16px 12px 0;
+    padding: 10px 0;
+    color: #245f28;
+    font-weight: 600;
+    text-underline-offset: 3px;
+}
+
+#produtosCadastrados { scroll-margin-top: 24px; }
+#listaProdutos { gap: 10px; margin-top: 18px; }
+#listaProdutos .produto-fornecedor {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    box-shadow: none;
+    overflow-wrap: anywhere;
+}
+#listaProdutos .produto-fornecedor:hover { transform: none; border-color: #b8d4bb; }
+.produto-fornecedor > div { min-width: 0; }
+#listaProdutos h3 { margin: 0 0 5px; font-size: 17px; }
+#listaProdutos p { margin: 0; font-size: 14px; line-height: 1.5; }
+.produto-identificacao p, .produto-valores > p:last-child, .estoque-unidade { color: #59635c; }
+.estoque-unidade { display: block; font-size: 12px; }
+#listaProdutos .produto-disponibilidade { margin-top: 4px; font-weight: 600; }
+.produto-disponibilidade.disponivel { color: #245f28; }
+.produto-disponibilidade.esgotado { color: #a32323; }
+#listaProdutos .acoes-card { border: 0; margin: 0; padding: 0; gap: 8px; flex-wrap: nowrap; }
+#listaProdutos .produto .acoes-card button { min-width: 0; margin: 0; padding: 10px 12px; }
+
+@media (max-width: 900px) {
+    #listaProdutos .produto-fornecedor { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    #listaProdutos .acoes-card { flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+    #listaProdutos .produto-fornecedor { padding: 14px; gap: 12px; }
+    .produto-identificacao, #listaProdutos .acoes-card { grid-column: 1 / -1; }
+    #listaProdutos .acoes-card { padding-top: 10px; border-top: 1px solid #e6ece7; }
+    #listaProdutos .produto .acoes-card button { flex: 1; }
+}
