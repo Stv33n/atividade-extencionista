@@ -36,6 +36,7 @@
 
     <link rel="stylesheet" href="css/cabecalho.css?v=1">
     <link rel="stylesheet" href="css/ofertas.css?v=1">
+    <link rel="stylesheet" href="css/inicio.css?v=1">
 </head>
 
 <body>
@@ -66,8 +67,8 @@
                 Entrar
             </a>
 
-            <a href="fornecedor-login.html">
-                Fornecedor
+            <a href="#ofertas">
+                Ofertas
             </a>
 
             <a href="carrinho.html">
@@ -93,13 +94,12 @@
             <div class="hero-texto">
 
                 <h2>
-                    Bem-vindo ao Mercadinho Fácil!
+                    As ofertas do seu bairro em um só lugar.
                 </h2>
 
                 <p>
-                    Encontre pequenos mercadinhos,
-                    consulte produtos, preços e estoque
-                    e faça sua solicitação para retirada.
+                    Compare preços, escolha seus produtos
+                    e retire no mercadinho perto de você.
                 </p>
 
                 <div class="hero-botoes">
@@ -112,10 +112,10 @@
                     </a>
 
                     <a
-                        href="fornecedor-login.html"
+                        href="#ofertas"
                         class="botao-link secundario"
                     >
-                        Área do Fornecedor
+                        Ver ofertas
                     </a>
 
                 </div>
@@ -125,7 +125,7 @@
         </section>
 
 
-        <section class="ofertas-home" aria-labelledby="tituloOfertas">
+        <section id="ofertas" class="ofertas-home" aria-labelledby="tituloOfertas">
             <div class="ofertas-topo">
                 <div>
                     <span class="ofertas-etiqueta">ECONOMIZE NO SEU BAIRRO</span>
@@ -141,76 +141,7 @@
             <div id="listaOfertas" class="ofertas-faixa" role="list" aria-label="Produtos em promoção"></div>
         </section>
 
-        <!-- COMO DESEJA ACESSAR -->
 
-        <section class="acesso-home">
-
-            <h2>
-                Como você deseja acessar?
-            </h2>
-
-            <div class="opcoes-acesso">
-
-                <div class="card-acesso">
-
-                    <div
-                        class="icone-acesso"
-                        aria-hidden="true"
-                    >
-                        👤
-                    </div>
-
-                    <h3>
-                        Cliente
-                    </h3>
-
-                    <p>
-                        Veja mercadinhos, produtos disponíveis,
-                        preços, estoque e promoções sem precisar
-                        criar conta para navegar.
-                    </p>
-
-                    <a
-                        href="mercadinhos.html"
-                        class="botao-link"
-                    >
-                        Ver Mercadinhos
-                    </a>
-
-                </div>
-
-
-                <div class="card-acesso">
-
-                    <div
-                        class="icone-acesso"
-                        aria-hidden="true"
-                    >
-                        📦
-                    </div>
-
-                    <h3>
-                        Fornecedor
-                    </h3>
-
-                    <p>
-                        Acesse sua conta para cadastrar seu
-                        estabelecimento, produtos, estoque e
-                        acompanhar os pedidos recebidos.
-                    </p>
-
-                    <a
-                        href="fornecedor-login.html"
-                        class="botao-link"
-                    >
-                        Entrar como Fornecedor
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
 
 
         <!-- DESTAQUES -->
@@ -224,7 +155,7 @@
                 </h3>
 
                 <p>
-                    Navegação fácil para clientes e fornecedores.
+                    Consulte os produtos sem precisar criar uma conta.
                 </p>
 
             </div>
@@ -233,12 +164,12 @@
             <div class="destaque">
 
                 <h3>
-                    📦 Controle de estoque
+                    🏷️ Compare as ofertas
                 </h3>
 
                 <p>
-                    O fornecedor consegue atualizar os produtos
-                    e o estoque do mercadinho.
+                    Encontre promoções e escolha o mercado
+                    que combina com a sua compra.
                 </p>
 
             </div>
@@ -251,8 +182,8 @@
                 </h3>
 
                 <p>
-                    O cliente solicita os produtos e retira
-                    diretamente no estabelecimento.
+                    Faça sua solicitação e pague diretamente
+                    no mercado ao retirar os produtos.
                 </p>
 
             </div>
@@ -326,6 +257,14 @@
         </section>
 
     </main>
+
+    <footer class="rodape-inicio">
+        <div>
+            <strong>Mercadinho Fácil</strong>
+            <p>Seu mercado, mais perto de você.</p>
+        </div>
+        <a href="fornecedor-login.html">Acesso do fornecedor</a>
+    </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>

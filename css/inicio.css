@@ -1,0 +1,26 @@
+.hero .hero-texto { max-width: 780px; margin: 0 auto; }
+.hero h2 { max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.2; }
+.hero .hero-botoes .botao-link { background: #fff; color: #215e2a; border: 1px solid #fff; }
+.hero .hero-botoes .botao-link:hover { background: #edf6e8; }
+.hero .hero-botoes .secundario { background: transparent; color: white; border-color: #ffffff90; }
+.hero .hero-botoes .secundario:hover { background: #ffffff18; }
+#ofertas { scroll-margin-top: 24px; }
+.rodape-inicio {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 0;
+    border-top: 1px solid #dce5de;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: #536159;
+    font-size: 13px;
+}
+.rodape-inicio strong { color: #355b40; font-size: 14px; }
+.rodape-inicio p { margin-top: 4px; }
+.rodape-inicio a { display: inline-flex; align-items: center; min-height: 44px; color: #536159; text-underline-offset: 4px; }
+.rodape-inicio a:hover { color: #215e2a; }
+@media (max-width: 600px) { .rodape-inicio { width: 95%; padding: 20px 12px; } }
