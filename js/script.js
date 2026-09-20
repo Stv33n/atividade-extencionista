@@ -148,12 +148,7 @@ async function mostrarProdutos() {
                 "fornecedor_id",
                 usuario.id
             )
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
+            .order("nome", { ascending: true });
 
 
     if (error) {
@@ -167,8 +162,7 @@ async function mostrarProdutos() {
     }
 
 
-    produtos =
-        data || [];
+    produtos = (data || []).sort((a, b) => String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR", { sensitivity: "base", numeric: true }));
 
 
     listaProdutos.innerHTML = "";
