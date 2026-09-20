@@ -40,3 +40,9 @@
     #listaProdutos .acoes-card { padding-top: 10px; border-top: 1px solid #e6ece7; }
     #listaProdutos .produto .acoes-card button { flex: 1; }
 }
+
+.ajuda-nome-produto, .estado-sugestoes-nome { font-size: 14px; color: #59635c; line-height: 1.5; }
+.estado-sugestoes-nome:empty { display: none; }
+.sugestoes-nome { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.sugestoes-nome[hidden] { display: none; }
+.sugestoes-nome button { white-space: normal; overflow-wrap: anywhere; text-align: left; }

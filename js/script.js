@@ -70,27 +70,38 @@ async function carregarSugestoesProdutos() {
         data || [];
 
 
-    sugestoesProdutos.innerHTML = "";
-
-
-    catalogoImagens.forEach(
-        function(produto) {
-
-            const option =
-                document.createElement("option");
-
-            option.value =
-                produto.nome_produto;
-
-            sugestoesProdutos.appendChild(
-                option
-            );
-
-        }
-    );
-
+    atualizarSugestoesNome();
 }
 
+function atualizarSugestoesNome() {
+    sugestoesProdutos.replaceChildren();
+    const nomes = SugestoesNome.buscar(campoNomeProduto.value, catalogoImagens);
+    sugestoesProdutos.hidden = nomes.length === 0;
+    document.getElementById("estadoSugestoesNome").textContent = nomes.length
+        ? "Sugestões disponíveis. Selecione o nome desejado abaixo."
+        : "";
+    for (const nome of nomes) {
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "botao-secundario";
+        botao.textContent = nome;
+        botao.addEventListener("click", () => {
+            campoNomeProduto.value = nome;
+            sugestoesProdutos.replaceChildren();
+            sugestoesProdutos.hidden = true;
+            document.getElementById("estadoSugestoesNome").textContent = "Produto selecionado: " + nome;
+            campoNomeProduto.focus();
+        });
+        sugestoesProdutos.appendChild(botao);
+    }
+}
+
+campoNomeProduto.addEventListener("input", atualizarSugestoesNome);
+formulario.addEventListener("reset", () => {
+    sugestoesProdutos.replaceChildren();
+    sugestoesProdutos.hidden = true;
+    document.getElementById("estadoSugestoesNome").textContent = "";
+});
 
 // ==========================================
 // MOSTRAR PRODUTOS
@@ -475,6 +486,7 @@ function editarProduto(id) {
     atualizarCampoPromocao();
     formulario.querySelector('button[type="submit"]').textContent = "Salvar alterações";
     produtoEditandoId = produto.id;
+    atualizarSugestoesNome();
 
 
     formulario.scrollIntoView({

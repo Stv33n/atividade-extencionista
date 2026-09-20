@@ -35,7 +35,7 @@
     >
 
     <link rel="stylesheet" href="css/cabecalho.css?v=1">
-    <link rel="stylesheet" href="css/fornecedor.css?v=1">
+    <link rel="stylesheet" href="css/fornecedor.css?v=2">
 </head>
 
 <body>
@@ -219,12 +219,14 @@
                     type="text"
                     id="nome"
                     placeholder="Ex: arroz, feijão, banana..."
-                    list="sugestoesProdutos"
+                    aria-describedby="ajudaNomeProduto"
                     autocomplete="off"
                     required
                 >
 
-                <datalist id="sugestoesProdutos"></datalist>
+                <p id="ajudaNomeProduto" class="ajuda-nome-produto">Digite o nome, mesmo com erro de escrita, e selecione uma sugestão. Se o produto for novo, você pode manter o nome digitado.</p>
+                <p id="estadoSugestoesNome" class="estado-sugestoes-nome" role="status"></p>
+                <div id="sugestoesProdutos" class="sugestoes-nome" role="group" aria-label="Sugestões de nomes de produtos" hidden></div>
                 <label for="categoria">Categoria:</label>
                 <select id="categoria" required>
                     <option value="Outros">Outros</option>
@@ -357,7 +359,8 @@
     <script src="js/catalogo.js?v=3"></script>
     <script src="js/sessao.js?v=2"></script>
 
-    <script src="js/script.js?v=5"></script>
+    <script src="js/sugestoes-nome.js?v=1"></script>
+    <script src="js/script.js?v=6"></script>
 
     <script src="js/foto-estabelecimento.js?v=1"></script>
     <script src="js/fornecedor.js?v=5"></script>
