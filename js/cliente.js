@@ -45,14 +45,14 @@ async function carregarCatalogoImagens() {
             error
         );
 
-        catalogoImagens = Catalogo.mesclarImagens();
+        catalogoImagens = [];
 
         return;
     }
 
 
     catalogoImagens =
-        Catalogo.mesclarImagens(data || []);
+        data || [];
 
 }
 
@@ -62,8 +62,69 @@ async function carregarCatalogoImagens() {
 // ==========================================
 
 function encontrarImagem(nomeProduto) {
-    return Catalogo.imagemDoProduto(nomeProduto, catalogoImagens);
+
+    const nomeNormalizado =
+        normalizarTexto(
+            nomeProduto
+        );
+
+
+    // Coloca os nomes maiores primeiro.
+    // Exemplo:
+    // "Leite Líquido" antes de "Leite".
+    const catalogoOrdenado =
+        [...catalogoImagens]
+            .sort(
+                function(a, b) {
+
+                    return (
+                        normalizarTexto(
+                            b.nome_produto
+                        ).length
+                        -
+                        normalizarTexto(
+                            a.nome_produto
+                        ).length
+                    );
+
+                }
+            );
+
+
+    const produtoEncontrado =
+        catalogoOrdenado.find(
+            function(item) {
+
+                const nomeCatalogo =
+                    normalizarTexto(
+                        item.nome_produto
+                    );
+
+
+                return (
+                    nomeNormalizado.includes(
+                        nomeCatalogo
+                    ) ||
+                    nomeCatalogo.includes(
+                        nomeNormalizado
+                    )
+                );
+
+            }
+        );
+
+
+    if (produtoEncontrado) {
+
+        return produtoEncontrado.imagem_url;
+
+    }
+
+
+    return null;
+
 }
+
 
 // ==========================================
 // MOSTRAR PRODUTOS

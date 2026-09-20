@@ -34,7 +34,6 @@ function renderizarProdutos() {
             ? `<img src="${Catalogo.escapar(imagemUrl)}" alt="${Catalogo.escapar(produto.nome)}" class="imagem-produto" loading="lazy">`
             : '<div class="sem-imagem">📦 Produto sem imagem</div>';
         card.innerHTML = `${imagem}
-            ${imagemUrl.startsWith("img/produtos/") ? '<small class="imagem-ilustrativa">Imagem ilustrativa</small>' : ''}
             <h3>${Catalogo.escapar(produto.nome)}</h3>
             <p>${Catalogo.escapar(Catalogo.medida(produto))}</p>
             <p class="categoria-produto">${Catalogo.escapar(categoria)}</p>

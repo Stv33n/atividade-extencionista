@@ -62,12 +62,12 @@ async function carregarSugestoesProdutos() {
             error
         );
 
-        // Mesmo sem conexão, as imagens locais continuam nas sugestões.
+        return;
     }
 
 
     catalogoImagens =
-        Catalogo.mesclarImagens(data || []);
+        data || [];
 
 
     sugestoesProdutos.innerHTML = "";
