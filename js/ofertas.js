@@ -68,9 +68,11 @@ const Ofertas = {
         const card = document.createElement("a");
         card.className = "oferta-card";
         card.href = "cliente.html?mercado=" + encodeURIComponent(produto.fornecedor_id);
+        const url = Catalogo.urlImagem(Catalogo.imagemDoProduto(produto.nome, imagens));
         const desconto = Math.floor((1 - Number(produto.preco) / Number(produto.preco_anterior)) * 100);
         card.innerHTML = `<span class="oferta-selo">${desconto > 0 ? desconto + "% de desconto" : "Em promoção"}</span>
             <div class="oferta-sem-imagem">Imagem não disponível</div>
+            ${url.startsWith("img/produtos/") ? '<small class="imagem-ilustrativa">Imagem ilustrativa</small>' : ''}
             <h3>${Catalogo.escapar(produto.nome)}</h3>
             <p class="oferta-medida">${Catalogo.escapar(Catalogo.medida(produto))}</p>
             <p class="oferta-anterior">De <del>${Catalogo.moeda(produto.preco_anterior)}</del></p>
@@ -78,9 +80,6 @@ const Ofertas = {
             <div class="oferta-mercado"><span class="icone-mercadinho"></span><span>${Catalogo.escapar(mercado.nome_fantasia)}</span></div>
             <span class="oferta-destino">Ver produtos deste mercado →</span>`;
         Catalogo.logo(card.querySelector(".icone-mercadinho"), mercado);
-        const nome = Ofertas.normalizar(produto.nome);
-        const imagemCatalogo = imagens.find(imagem => nome.includes(Ofertas.normalizar(imagem.nome_produto)));
-        const url = Catalogo.urlImagem(imagemCatalogo?.imagem_url);
         if (url) {
             const fallback = card.querySelector(".oferta-sem-imagem");
             const imagem = document.createElement("img");

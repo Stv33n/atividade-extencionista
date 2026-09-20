@@ -1017,6 +1017,7 @@ button:focus-visible, a:focus-visible {
 .icone-mercadinho { overflow: hidden; font-size: 28px; font-weight: bold; color: #2e7d32; }
 #grupoPrecoAnterior[hidden] { display: none; }
 #formProduto input[type="number"] { max-width: 220px; }
+.imagem-ilustrativa { display: block; color: #68716a; font-size: 11px; text-align: center; margin: -6px 0 10px; }
 
 /* Ações dos painéis: tamanhos consistentes e grupos com espaçamento. */
 main button, main .botao-link {

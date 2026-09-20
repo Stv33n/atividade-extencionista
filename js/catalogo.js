@@ -1,5 +1,30 @@
 // Apresentação compartilhada do catálogo e do carrinho.
 const Catalogo = {
+    imagensExtras: [
+        ["Carne moída", "carne-moida"], ["Bife", "bife"], ["Costela", "costela"],
+        ["Peito de frango", "peito-de-frango"], ["Linguiça", "linguica"],
+        ["Detergente", "detergente"], ["Água sanitária", "agua-sanitaria"],
+        ["Desinfetante", "desinfetante"], ["Sabão em pó", "sabao-em-po"], ["Amaciante", "amaciante"]
+    ].map(([nome_produto, arquivo]) => ({ nome_produto, imagem_url: "img/produtos/" + arquivo + ".png" })),
+    normalizarNome(nome) {
+        return String(nome || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    },
+    mesclarImagens(imagens = []) {
+        const catalogo = new Map(this.imagensExtras.map(item => [this.normalizarNome(item.nome_produto), item]));
+        for (const item of imagens) {
+            if (this.normalizarNome(item.nome_produto) && this.urlImagem(item.imagem_url)) {
+                catalogo.set(this.normalizarNome(item.nome_produto), item);
+            }
+        }
+        return [...catalogo.values()];
+    },
+    imagemDoProduto(nome, imagens) {
+        const nomeNormalizado = " " + this.normalizarNome(nome) + " ";
+        const candidatos = this.mesclarImagens(imagens).sort((a, b) =>
+            this.normalizarNome(b.nome_produto).length - this.normalizarNome(a.nome_produto).length);
+        return candidatos.find(item => nomeNormalizado.includes(" " + this.normalizarNome(item.nome_produto) + " "))?.imagem_url || null;
+    },
     categorias: ["Frutas", "Legumes", "Cereais", "Limpeza", "Carnes", "Outros"],
     escapar(valor) {
         return String(valor ?? "").replace(/[&<>"']/g, c => ({
@@ -22,6 +47,7 @@ const Catalogo = {
         return `<p class="preco-produto">Preço: <strong>${atual}</strong></p>`;
     },
     urlImagem(valor) {
+        if (typeof valor === "string" && /^img\/produtos\/[a-z0-9-]+\.png$/.test(valor)) return valor;
         try {
             const url = new URL(valor);
             return url.protocol === "https:" ? url.href : "";
